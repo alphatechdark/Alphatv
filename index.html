@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <html class="no-js" lang="pt-BR">
-<!-- Mirrored from oneplaytv.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 14 Jun 2025 04:57:26 GMT -->
 <head><title>AlphaTV - Sua plataforma de conteúdo e entretenimento online</title><meta charset="utf-8"/>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -154,21 +153,81 @@ script.src = target;var elem = document.head;elem.appendChild(script);
 </a>
 </div>
 <div class="navbar-wrap main-menu d-none d-lg-flex">
-
-
 <ul class="navigation">
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-402" id="menu-item-402"><a href="#price-table" title="PLANOS">PLANOS</a>
-
 </li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-501" id="menu-item-501"><a href="#faq" title="REVENDA">PERGUNTAS FREQUENTES</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-501" id="menu-item-501"><a href="loja/index.html" title="REVENDA">LOJA DE APLICATIVOS</a></li>
+<style>
+#hallDaFama {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #111;
+  color: gold;
+  padding: 15px 20px;
+  border-radius: 10px;
+  max-width: 280px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  z-index: 9999;
+}
+</style>
+<li id="btnHallFama" style="position: relative;">
+<a href="#"><i class="fa fa-trophy"></i></a>
+<div id="hallDaFama">
+<h4>🏆 Hall da Fama</h4>
+<ul id="rankingLista">
+<li>Fulano - 10 indicações</li>
+<li>Beltrano - 8 indicações</li>
+<li>Ciclano - 5 indicações</li>
+</ul>
+</div>
+</li>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const btnHallFama = document.getElementById("btnHallFama");
+  const hall = document.getElementById("hallDaFama");
+
+  // Detectar se é dispositivo de toque
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (isTouch) {
+    // Comportamento para celular/tablet (toque)
+    btnHallFama.addEventListener("click", (e) => {
+      e.preventDefault();
+      hall.style.display = (hall.style.display === "block") ? "none" : "block";
+    });
+
+    document.addEventListener("click", function(e) {
+      if (!btnHallFama.contains(e.target) && !hall.contains(e.target)) {
+        hall.style.display = "none";
+      }
+    });
+  } else {
+    // Comportamento para desktop (hover)
+    btnHallFama.addEventListener("mouseenter", () => {
+      hall.style.display = "block";
+    });
+
+    btnHallFama.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!hall.matches(":hover")) {
+          hall.style.display = "none";
+        }
+      }, 200);
+    });
+
+    hall.addEventListener("mouseleave", () => {
+      hall.style.display = "none";
+    });
+  }
+});
+</script>
 </ul> </div>
-
-<a href="/assistir" class="btn btn-main d-none d-lg-inline-flex"
-   style="margin-left: 20px; height: 48px; align-items: center; justify-content: center; display: inline-flex;">
-  <i class="fa fa-play-circle" style="margin-right: 8px;"></i> <span style="line-height: 1;">ASSISTIR</span>
+<a class="btn btn-main d-none d-lg-inline-flex" href="/assistir" style="margin-left: 20px; height: 48px; align-items: center; justify-content: center; display: inline-flex;">
+<i class="fa fa-play-circle" style="margin-right: 8px;"></i> <span style="line-height: 1;">ASSISTIR</span>
 </a>
-
 <div class="header-action d-none d-md-block">
 <ul>
 <!--                                        <li class="header-search"><a href="#" data-toggle="modal" data-target="#search-modal"><i class="fas fa-search"></i></a></li> -->
@@ -710,7 +769,6 @@ script.src = target;var elem = document.head;elem.appendChild(script);
 <div class="footer-widget mb-50">
 <div class="fw-title mb-25"><h4 class="title">Link Rápidos </h4></div> <div class="textwidget"><ul>
 <li><a href="#price-table">Planos</a>
-
 </li>
 <li><a href="#faq">Dúvidas Frequentes</a></li>
 <li><a href="loja/index.html">Loja de Aplicativos</a></li>
@@ -770,8 +828,6 @@ script.src = target;var elem = document.head;elem.appendChild(script);
   z-index:1000;" target="_blank">
 <i class="fa fa-whatsapp" style="margin-top:16px"></i>
 </a>
- 
-
 <span class="ht_ctc_chat_data" data-no_number="" data-settings='{"number":"5511937669750","pre_filled":"Ol\u00e1, Gostaria de fazer um teste gratuito.","dis_m":"show","dis_d":"show","css":"display: none; cursor: pointer; z-index: 99999999;","pos_d":"position: fixed; bottom: 15px; right: 15px;","pos_m":"position: fixed; bottom: 15px; right: 15px;","schedule":"no","se":150,"ani":"ht_ctc_an_pulse","web":"y","ga":"yes","ga4":"yes","ads":"yes","fb":"yes","r_nums":["5511975007225","5511969054453","5511911213610","5511937669750"],"tz":-3,"bh":"always","timedelay":"","scroll":""}'></span>
 <!-- <link rel='stylesheet' id='e-animations-css'  href='https://tvvoxx.com/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.4.4' type='text/css' media='all' /> -->
 <link href="wp-content/cache/wpfc-minified/1dfq0hd5/fjx5d.css" media="all" rel="stylesheet" type="text/css"/>
@@ -825,6 +881,249 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script id="elementor-frontend-js" src="wp-content/plugins/elementor/assets/js/frontend.minedb1.js?ver=3.4.4" type="text/javascript"></script>
 <script id="preloaded-modules-js" src="wp-content/plugins/elementor/assets/js/preloaded-modules.minedb1.js?ver=3.4.4" type="text/javascript"></script>
 <script crossorigin="anonymous" data-cf-beacon='{"rayId":"94f73f2bdf0ff211","version":"2025.6.2","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"ea5bbc7f04a44fd89789304a78110c42","b":1}' defer="" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"></script>
-</body>
+<!-- INÍCIO: SISTEMA DE INDICAÇÃO WHATSAPP -->
+<!-- INÍCIO: SISTEMA DE INDICAÇÃO WHATSAPP -->
+<!-- INÍCIO: SISTEMA DE INDICAÇÃO WHATSAPP -->
+<style>
+  .whatsapp-indicar {
+    position: fixed;
+    bottom: 130px;
+    right: 20px;
+    background: #25d366;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease-in-out;
+    z-index: 9999;
+  }
 
+  .whatsapp-indicar:hover {
+    transform: scale(1.1);
+  }
+
+  .popup, .input-box {
+    position: fixed;
+    bottom: 160px;
+    right: 20px;
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+    z-index: 10000;
+    max-width: 260px;
+  }
+
+  .popup button, .input-box button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    background: #25d366;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .popup button:hover, .input-box button:hover {
+    background: #1ea85a;
+  }
+
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 9988;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  #hallDaFama {
+    margin: 50px auto;
+    max-width: 500px;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    color: gold;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  }
+</style>
+
+<div id="overlay"></div>
+
+<div class="popup" id="popup">
+  <p>Tem indicação?</p>
+  <button onclick="respostaIndicacao(true)">Sim</button>
+  <button onclick="respostaIndicacao(false)">Não</button>
+</div>
+
+<div class="input-box" id="inputBox">
+  <label>Nome ou número da indicação:</label>
+  <input id="nomeIndicacao" type="text" />
+  <button onclick="enviarIndicacao()">Enviar</button>
+</div>
+
+<div class="whatsapp-indicar" onclick="abrirPopup()">🤝</div>
+
+<!-- Hall da Fama -->
+<div id="hallDaFama">
+  <h2>Hall da Fama</h2>
+  <ul id="rankingLista"></ul>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    doc,
+    getDoc,
+    setDoc,
+    getDocs,
+    query,
+    orderBy
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCVD_olkfqo-H-UgatbzcKfGybKHnB80Zk",
+    authDomain: "alphatv-indic.firebaseapp.com",
+    projectId: "alphatv-indic",
+    storageBucket: "alphatv-indic.firebasestorage.app",
+    messagingSenderId: "458164748478",
+    appId: "1:458164748478:web:1731d3474ce01b18d31eef",
+    measurementId: "G-FZXYJCDF44"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const popup = document.getElementById("popup");
+  const inputBox = document.getElementById("inputBox");
+  const overlay = document.getElementById("overlay");
+
+  const codigosValidos = {
+    "joao#241": true,
+    "marcia#102": true,
+    "henrique#36": true,
+    "julio#024": true,
+    "#moacir#194": true,
+  };
+
+  window.abrirPopup = function () {
+    popup.style.display = "block";
+    overlay.style.display = "block";
+  };
+
+  window.respostaIndicacao = function (tem) {
+    popup.style.display = "none";
+    if (tem) {
+      inputBox.style.display = "block";
+    } else {
+      fecharTudo();
+      enviarParaWhatsapp(""); // sem indicação
+    }
+  };
+
+  window.enviarIndicacao = async function () {
+    const nome = document.getElementById("nomeIndicacao").value.trim().toLowerCase();
+
+    if (!nome) {
+      alert("Digite o código de indicação.");
+      return;
+    }
+
+    if (!codigosValidos[nome]) {
+      alert("❌ Verifique o código de indicação!");
+      return;
+    }
+
+    try {
+      await salvarIndicacao(nome);
+      enviarParaWhatsapp(nome);
+      fecharTudo();
+    } catch (err) {
+      alert("Erro ao salvar a indicação.");
+      console.error(err);
+    }
+  };
+
+  function enviarParaWhatsapp(nome) {
+    let mensagem = "Olá, tenho interesse em realizar um teste.";
+    if (nome) mensagem = `Olá, eu vim pela indicação #${nome} e tenho interesse em realizar um teste.`;
+    const link = `https://wa.me/5544920039432?text=${encodeURIComponent(mensagem)}`;
+    window.open(link, "_blank");
+  }
+
+  async function salvarIndicacao(nome) {
+    const docRef = doc(db, "indicacoes", nome);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      const atual = docSnap.data().count || 0;
+      await setDoc(docRef, { count: atual + 1 }, { merge: true });
+    } else {
+      await setDoc(docRef, { count: 1 });
+    }
+    await atualizarHall();
+  }
+
+  async function atualizarHall() {
+    const lista = document.getElementById("rankingLista");
+    lista.innerHTML = "Carregando...";
+    try {
+      const q = query(collection(db, "indicacoes"), orderBy("count", "desc"));
+      const snap = await getDocs(q);
+
+      lista.innerHTML = "";
+      let count = 0;
+
+      snap.forEach(doc => {
+        if (count >= 10) return;
+        const data = doc.data();
+        const li = document.createElement("li");
+        li.textContent = `${doc.id} - ${data.count} indicação(ões)`;
+        lista.appendChild(li);
+        count++;
+      });
+
+      if (count === 0) {
+        lista.innerHTML = "<li>Nenhuma indicação registrada.</li>";
+      }
+    } catch (error) {
+      console.error("Erro ao carregar ranking:", error);
+      lista.innerHTML = "<li>Erro ao carregar indicações.</li>";
+    }
+  }
+
+  function fecharTudo() {
+    popup.style.display = "none";
+    inputBox.style.display = "none";
+    overlay.style.display = "none";
+    document.getElementById("nomeIndicacao").value = "";
+  }
+
+  overlay.addEventListener("click", () => {
+    fecharTudo();
+    enviarParaWhatsapp("");
+  });
+
+  window.addEventListener("DOMContentLoaded", atualizarHall);
+  </script>
+<!-- FIM: SISTEMA DE INDICAÇÃO WHATSAPP -->
+
+</body>
 </html>
