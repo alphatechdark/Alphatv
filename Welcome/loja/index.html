@@ -1,194 +1,258 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaTV - Loja</title>
 
-<head><meta charset="utf-8">
-	<title>AlphaTV | Aplicativos </title>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Favicon-->
-	<link rel="icon" type="imagem/png" href="favicon.png">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- Scripts -->
-	<script src="../../code.jquery.com/jquery-3.1.1.js"></script>
-	<script>
-		$(document).ready(function(){
-			$(".button1").click(function(){
-				var texto = $(this).text();
-				var $temp = $("<input>");
-				$("body").append($temp);
-				$temp.val(texto).select();
-				document.execCommand("copy");
-				$temp.remove();
-				alert("Texto copiado!");
-			});
-		});
-	</script>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: url('img/bg_alpha_tv.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #1F51FF;
-  }
-
-  h1, h2, h3, h4 {
-    color: #1F51FF;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  }
-
-  .button1, .btn {
-    background: linear-gradient(135deg, #7b2ff7, #f107a3);
-    border: none;
-    color: white;
-    font-weight: 600;
-    border-radius: 50px;
-    padding: 0.75em 2em;
-    box-shadow: 0 5px 15px rgba(241,7,163,0.4);
-    transition: all 0.3s ease-in-out;
-  }
-
-  .button1:hover, .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(241,7,163,0.5);
-  }
-
-  .card {
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 1.5em;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  }
-</style>
-
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5em;
-  font-weight: 700;
-  background: linear-gradient(90deg, #00ffff, #1e90ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  margin-bottom: 10px;
-  text-shadow: 0 0 8px rgba(30,144,255,0.4);
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Orbitron', sans-serif;
 }
 
-a.button1, .button1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #9b00ff, #c900ff);
-  border-radius: 30px;
-  color: white;
-  font-size: 1.1em;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 12px 30px;
-  box-shadow: 0 0 12px rgba(155, 0, 255, 0.6);
-  transition: all 0.3s ease-in-out;
-  margin: 0 auto;
-  width: fit-content;
+body{
+background:#0a0a15;
+color:white;
+overflow:hidden;
 }
 
-.button1:hover {
-  background: linear-gradient(135deg, #c900ff, #ff00cc);
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(255, 0, 204, 0.7);
+/* ===== FUNDO ANIMADO ===== */
+
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:
+radial-gradient(circle at 20% 30%, #00f7ff33, transparent 40%),
+radial-gradient(circle at 80% 70%, #ff00ff33, transparent 40%);
+animation:spin 25s linear infinite;
+z-index:-2;
 }
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+/* ===== PARTÍCULAS ===== */
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* ===== TITULO GLITCH ===== */
+
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+.glitch{
+font-size:48px;
+position:relative;
+color:#00f7ff;
+text-shadow:0 0 20px #00f7ff;
+}
+
+.glitch::before,
+.glitch::after{
+content:attr(data-text);
+position:absolute;
+left:0;
+width:100%;
+}
+
+.glitch::before{
+color:#ff00ff;
+z-index:-1;
+animation:glitch1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after{
+color:#00f7ff;
+z-index:-2;
+animation:glitch2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch1{
+0%{transform:translate(2px,-2px);}
+100%{transform:translate(-2px,2px);}
+}
+
+@keyframes glitch2{
+0%{transform:translate(-2px,2px);}
+100%{transform:translate(2px,-2px);}
+}
+
+/* ===== CARDS ===== */
+
+.container{
+display:flex;
+justify-content:center;
+gap:60px;
+padding:80px;
+flex-wrap:wrap;
+}
+
+.card{
+width:320px;
+height:200px;
+background:#111;
+border-radius:20px;
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+transition:0.5s;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+padding:2px;
+background:linear-gradient(45deg,#00f7ff,#ff00ff,#00f7ff);
+background-size:400%;
+animation:borderRGB 6s linear infinite;
+-webkit-mask:
+linear-gradient(#000 0 0) content-box,
+linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+border-radius:20px;
+}
+
+@keyframes borderRGB{
+0%{background-position:0% 50%;}
+100%{background-position:100% 50%;}
+}
+
+.card:hover{
+transform:translateY(-20px) scale(1.07) rotateX(10deg);
+box-shadow:0 0 40px #00f7ff;
+}
+
+.card h2{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+opacity:0.7;
+}
+
+/* ===== RODAPÉ ENERGIA ===== */
+
+footer{
+margin-top:100px;
+padding:40px;
+text-align:center;
+border-top:1px solid #00f7ff55;
+background:linear-gradient(90deg,#00f7ff11,#ff00ff11);
+box-shadow:0 -10px 40px #00f7ff22;
+}
+
+footer p{
+opacity:0.6;
+}
+
 </style>
-
 </head>
-<body id="top">
-	<section id="banner" data-video="images/banner" style="background-image: url('img/fundo_logo.jpg');"> 
-	  <div class="inner">
-			<header>
-				<img src='img/logo.png' width='770px' height='271px'>                            
-							
-						<header>
-							<h1>LOJA DE APPS</h1>
-					</header></header></div>
-				</section>
-	
-	<!-- Main -->
-	<div id="main">
-		<div class="inner">
-			<!-- Boxes -->
-			<div class="thumbnails">
-				
-											<div class="box">
-							<a class="image fit"><img src="actions/imgs_app/alphatv_xciptv.jpg" alt=""></a>
-							<div class="inner">
-								<h3>AlphaTV XCIPTV</h3>
-								<a href="actions/apps/xciptv.apk" class="button style2 fit" data-poptrox="youtube,800x400">Download</a>									                               
-							</div>
-						</div>
-					
-											<div class="box">
-							<a class="image fit"><img src="actions/imgs_app/alphat_smarters.jpg" alt=""></a>
-							<div class="inner">
-								<h3>AlphaTV Smarters</h3>
-								<a href="actions/apps/smarter.apk" class="button style2 fit" data-poptrox="youtube,800x400">Download</a>									                               
-							</div>
-						</div>
-					
-											<div class="box">
-							<a class="image fit"><img src="actions/imgs_app/alphatv_vu.jpg" alt=""></a>
-							<div class="inner">
-								<h3>AlphaTv VU</h3>
-								<a href="actions/apps/vu.apk" class="button style2 fit" data-poptrox="youtube,800x400">Download</a>									                               
-							</div>
-						</div>
-					
-											<div class="box">
-							<a class="image fit"><img src="actions/imgs_app/alphatv_9x.jpg" alt=""></a>
-							<div class="inner">
-								<h3>AlphaTv 9XTREAM</h3>
-								<a href="actions/apps/9x.apk" class="button style2 fit" data-poptrox="youtube,800x400">Download</a>									                               
-							</div>
-						</div>
-									
-									
-																										
-							</div>
-						</div>
-						
-						
-				</div>
-			
-		
-		<!-- Footer -->
-		
-<footer style="background: #1a1a1a; color: white; padding: 40px 20px; text-align: center;">
-  <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2em;">
-    <div style="flex: 1; min-width: 200px;">
-      <h3 style="color: #9e79ff;">AlphaTV</h3>
-      <p>Streaming simplificado com estilo.</p>
-    </div>
-    <div style="flex: 1; min-width: 200px;">
-      <h4>Links</h4>
-      <ul style="list-style: none; padding: 0;">
-        <li><a href="/" style="color: #ccc;">Início</a></li>
-        <li><a href="/loja" style="color: #ccc;">Loja</a></li>
-        <li><a href="#" style="color: #ccc;">Suporte</a></li>
-      </ul>
-    </div>
-    <div style="flex: 1; min-width: 200px;">
-      <h4>Siga-nos</h4>
-      <p>
-        <a href="#" style="color: #ccc; margin-right: 10px;">Instagram</a>
-        <a href="#" style="color: #ccc;">YouTube</a>
-      </p>
-    </div>
+<body>
+
+<canvas id="particles"></canvas>
+
+<header>
+<h1 class="glitch" data-text="LOJA ALPHATV">LOJA ALPHATV</h1>
+</header>
+
+<div class="container">
+
+  <div class="card" onclick="window.location.href='/apps'">
+    <h2>🎮 Aplicativos</h2>
+    <p>Acessar Apps Premium</p>
   </div>
-  <p style="margin-top: 30px; font-size: 0.85em; color: #777;">&copy; 2025 AlphaTV. Todos os direitos reservados.</p>
+
+  <div class="card" onclick="window.location.href='/afiliado'">
+    <h2>💰 Painel Afiliado</h2>
+    <p>Área exclusiva</p>
+  </div>
+
+<div class="card" onclick="window.location.href='loading/index.html'">
+    <h2>🎬 Assistir</h2>
+    <p>Entrar na Plataforma</p>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 AlphaTV - Energia Digital</p>
 </footer>
 
-	<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"94f73f84ec73f211","version":"2025.6.2","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"ea5bbc7f04a44fd89789304a78110c42","b":1}' crossorigin="anonymous"></script>
-</body>
-	
+<script>
 
+/* ===== PARTÍCULAS ===== */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle{
+constructor(){
+this.x = Math.random()*canvas.width;
+this.y = Math.random()*canvas.height;
+this.size = Math.random()*2;
+this.speedX = Math.random()*1-0.5;
+this.speedY = Math.random()*1-0.5;
+}
+update(){
+this.x += this.speedX;
+this.y += this.speedY;
+}
+draw(){
+ctx.fillStyle="#00f7ff";
+ctx.beginPath();
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+ctx.fill();
+}
+}
+
+function init(){
+for(let i=0;i<120;i++){
+particlesArray.push(new Particle());
+}
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particlesArray.forEach(p=>{
+p.update();
+p.draw();
+});
+requestAnimationFrame(animate);
+}
+
+init();
+animate();
+
+</script>
+
+</body>
 </html>
