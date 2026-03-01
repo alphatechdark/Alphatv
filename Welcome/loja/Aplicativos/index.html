@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaTV | Loja Oficial</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#07070f;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* FUNDO ANIMADO */
+body::before{
+  content:'';
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#00f2ff33,transparent 60%);
+  top:-200px;
+  left:-200px;
+  animation:moveGlow 12s infinite alternate;
+  z-index:-1;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#ff00c833,transparent 60%);
+  bottom:-200px;
+  right:-200px;
+  animation:moveGlow 15s infinite alternate-reverse;
+  z-index:-1;
+}
+
+@keyframes moveGlow{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(100px,100px);}
+}
+
+/* HEADER */
+.hero{
+  text-align:center;
+  padding:100px 20px 60px;
+}
+
+.hero img{
+  width:260px;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-size:48px;
+  font-weight:800;
+  background:linear-gradient(90deg,#00f2ff,#ff00c8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:pulse 3s infinite alternate;
+}
+
+@keyframes pulse{
+  from{filter:drop-shadow(0 0 5px #00f2ff);}
+  to{filter:drop-shadow(0 0 25px #ff00c8);}
+}
+
+/* GRID */
+.grid{
+  max-width:1300px;
+  margin:auto;
+  padding:60px 20px 120px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:50px;
+}
+
+/* CARD 3D */
+.card{
+  position:relative;
+  background:rgba(255,255,255,0.05);
+  border-radius:30px;
+  padding:40px 20px;
+  text-align:center;
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:.4s ease;
+  transform-style:preserve-3d;
+}
+
+.card:hover{
+  transform:rotateY(8deg) rotateX(5deg) scale(1.05);
+  box-shadow:0 0 50px rgba(0,242,255,.4);
+}
+
+.card img{
+  width:120px;
+  margin-bottom:25px;
+  transition:.4s;
+}
+
+.card:hover img{
+  transform:translateZ(30px) scale(1.1);
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:25px;
+}
+
+/* BOTÃO */
+.btn{
+  display:inline-block;
+  padding:14px 35px;
+  border-radius:40px;
+  background:linear-gradient(90deg,#00f2ff,#ff00c8);
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #00f2ff;
+}
+
+/* AFILIADO SUPER DESTAQUE */
+.afiliado{
+  background:linear-gradient(135deg,#19002f,#32004f);
+  border:1px solid #ff00c8;
+}
+
+.afiliado:hover{
+  box-shadow:0 0 60px #ff00c8;
+}
+
+/* ANIMAÇÃO ENTRADA */
+.card{
+  opacity:0;
+  transform:translateY(50px);
+  animation:fadeUp .8s forwards;
+}
+
+.card:nth-child(2){animation-delay:.1s;}
+.card:nth-child(3){animation-delay:.2s;}
+.card:nth-child(4){animation-delay:.3s;}
+.card:nth-child(5){animation-delay:.4s;}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  background:#0a0a12;
+  opacity:.7;
+}
+
+@media(max-width:600px){
+  .hero h1{font-size:32px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <img src="img/logo.png" alt="AlphaTV">
+  <h1>Central Oficial de Aplicativos</h1>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <img src="Aplicativos/actions/imgs_app/alphatv.jpg">
+    <h3>AlphaTV - OFICIAL</h3>
+    <a href="actions/apps/AlphaTV.apk" class="btn">Baixar App</a>
+  </div>
+
+  <div class="card">
+    <img src="actions/imgs_app/alphat_smarters.jpg">
+    <h3>Smarters Lite</h3>
+    <a href="actions/apps/smarter.apk" class="btn">Baixar App</a>
+  </div>
+
+  <div class="card">
+    <img src="actions/imgs_app/alphatv_vu.jpg">
+    <h3>VU - Player</h3>
+    <a href="actions/apps/vu.apk" class="btn">Baixar App</a>
+  </div>
+
+  <div class="card">
+    <img src="actions/imgs_app/alphatv_9x.jpg">
+    <h3>9XTREAM</h3>
+    <a href="actions/apps/9x.apk" class="btn">Baixar App</a>
+  </div>
+
+  <div class="card afiliado">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+    <h3>Painel do Afiliado</h3>
+    <a href="SEU_LINK_DO_PAINEL_AQUI" class="btn">Acessar Painel</a>
+  </div>
+
+</div>
+
+<footer>
+© 2026 AlphaTV - Plataforma Oficial
+</footer>
+
+</body>
+</html>
